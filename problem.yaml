@@ -1,0 +1,8 @@
+problem_format_version: legacy
+type: pass-fail
+uuid: 68e17d4b-6156-45e3-a046-1171bff64990
+name: Dizzy Work
+author: Melvyn Depeyrot, Benjamin Ghaderi
+source: McGill COMP 595 Class Contest 2026
+license: cc by-sa
+keywords: ['polynomial' 'root-finding' 'lifting']
