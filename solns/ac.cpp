@@ -3,9 +3,8 @@
 #endif
 using namespace std;
 
-// TLE solution: for each polynomial, factor it, merge repeated factors
-// and solve modulo each merged prime, then apply CRT
-// O(nmk)
+// AC Solution: solve for each factor p and hensel lift to p^e
+// then CRT for final answer
 
 long euclid(long a, long b, long& x, long& y)
 {
@@ -146,17 +145,18 @@ long solveSmall(vector<long>& f, long m)
     __builtin_abort();
 }
 
-// Computes (f(x), f'(x))
-pair<long, long> eval(vector<long>& f, long x)
+// Computes {f(x), f'(x)} modulus m
+pair<long, long> eval(vector<long>& f, long x, long m)
 {
-    long rv = f[0];
+    long rv = f[0] % m;
     long rvd = 0;
     long t = 1;
     for (long i = 1; i < f.size(); i++)
     {
-        rv += f[i] * x * t;
-        rvd += f[i] * i * t;
-        t *= x;
+        long ft = (f[i] * t) % m;
+        rv = (rv + (ft * x)) % m;
+        rvd = (rvd + (ft * i)) % m;
+        t = (t * x) % m;
     }
     return {rv, rvd};
 }
@@ -171,7 +171,7 @@ pair<long, long> solveMedium(vector<long>& f, pair<long, long> modulus)
     {
         // now solve f(x_n + p^n * y) = (f(x_n) + f'(x_n) * p^n * y) % p^(n+1) = 0
         // then x_n+1 = x_n + p^n * y
-        auto [fx, fxd] = eval(f, x);
+        auto [fx, fxd] = eval(f, x, pe * modulus.first);
         vector<long> facs = {fx, fxd * pe};
         long y = solveSmall(facs, pe * modulus.first);
         x += pe * y;
