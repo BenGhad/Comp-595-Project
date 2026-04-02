@@ -1,24 +1,47 @@
-\usepackage{amsmath}\problemname{Dizzy Work}
-\textbf{TODO} heartbreaking story here
+\problemname{Dizzy Work}
+\paragraph{}
+For the past 20 years, Little Johnny has been working hard as a Bricklayer.
+It's honest work, and he reinvests the money into his education at Hensel High School.
+
+\begin{center}
+    \includegraphics[width=0.35\textwidth]{image2}
+\end{center}
+
+\paragraph{}
+The evil Mr. Ring has it out for him and has assigned Little Johnny several pages of algebra homework.
+If that wasn't bad enough,
+Mr. Ring was never really a fan of the real numbers, or even
+the rationals: each assignment is to be solved in an integer
+ring, modulus some $M$.
+
+\paragraph{}
+Johnny is no slacker, but he really needs your help with
+the root-finding problems. He's been searching for answers
+around the ring for hours and all he got was a spinning
+headache!
+
+
+\paragraph{}
+Can you solve the homework and save the day?
 
 \section*{Input}
 The first line of input consists of two space-separated integers $N$ and $M$
-($1 \leq N \leq 200 ~ 000$, $2 \leq M \leq 2^{31} - 1$):
+\mbox{($1 \leq N \leq 200 ~ 000$, $2 \leq M \leq 2^{31} - 1$)}:
 the number of polynomials and the modulus.
-\\
-$2N$ lines follow of pairs of: a line which consists of
-a single integer $k_i$ ($2 \leq k_i \leq 200 ~ 000$),
+\\\\
+$N$ polynomials follow, as a line which consists of
+a single integer $k_i$ \mbox{($2 \leq k_i \leq 200 ~ 000$)},
 followed by a line which consists of $k_i$ integers $c_{i,j}$
-($-2^{31} \leq c_{i,j} \leq 2^{31} - 1$),
+\mbox{($-2^{31} \leq c_{i,j} \leq 2^{31} - 1$)},
 which are the coefficients of polynomial $f_i$, i.e.
 \[
     f_i(x) = c_{i,1} + c_{i,2} x + c_{i,3} x^2 + \dots + c_{i,k_i} x^{k_i - 1}
 \]
-
+\\\\
 You are guaranteed that the sum of all $k_i$ does not exceed $200 ~ 000$.
 
 \section*{Output}
 Print $N$ lines, each containing the smallest non-negative integer $x_i$
 for which $f_i(x_i) \equiv 0 \mod M$.
-
+\\\\
 You are guaranteed that there exists such an $x_i$.
