@@ -2,17 +2,23 @@
 \textbf{TODO} heartbreaking story here
 
 \section*{Input}
-The first line of input consists of two integers: $N$ and $M$.
-($1 \leq N \leq 200 ~ 000$, $2 \leq M \leq 2^{31} - 1$)
-The next $2N$ lines consist of pairs of: a line which consists of
+The first line of input consists of two space-separated integers $N$ and $M$
+($1 \leq N \leq 200 ~ 000$, $2 \leq M \leq 2^{31} - 1$):
+the number of polynomials and the modulus.
+\\
+$2N$ lines follow of pairs of: a line which consists of
 a single integer $k_i$ ($2 \leq k_i \leq 200 ~ 000$),
 followed by a line which consists of $k_i$ integers $c_{i,j}$
-($-2^{31} \leq c_i_j \leq 2^{31} - 1$),
+($-2^{31} \leq c_{i,j} \leq 2^{31} - 1$),
 which are the coefficients of polynomial $f_i$, i.e.
-$f_i(x) = c_i_1 + c_i_2 x + c_i_3 x^2 + \dots + c_i_{k_i} x^{k_i - 1}$.
+\[
+    f_i(x) = c_{i,1} + c_{i,2} x + c_{i,3} x^2 + \dots + c_{i,k_i} x^{k_i - 1}
+\]
 
 You are guaranteed that the sum of all $k_i$ does not exceed $200 ~ 000$.
 
 \section*{Output}
-Print $n$ lines each containing the smallest non-negative integer $x_i$
+Print $N$ lines, each containing the smallest non-negative integer $x_i$
 for which $f_i(x_i) \equiv 0 \mod M$.
+
+You are guaranteed that there exists such an $x_i$.
