@@ -60,6 +60,38 @@ PolyExpand input:
 
 
 ### 06
+Another plain CRT case.
+
+The modulus is the product of the primes from 2 to 23,
+the first polynomial is the product of $p_i x - 1$
+for each factor of the modulus.
+The second  polynomial is the same, but only up to
+$p_i = 7$ and with an additional term $x - 1000000$.
+
+PolyExpand inputs:
+```
+9
+2 1 1
+3 1 1
+5 1 1
+7 1 1
+11 1 1
+13 1 1
+17 1 1
+19 1 1
+23 1 1
+```
+and
+```
+5
+2 1 1
+3 1 1
+5 1 1
+7 1 1
+1 -1000000 1
+```
+
+### 07
 Modulus $2^{30}$ to TLE submissions that do not lift squares.
 
 Polynomial is $(2x - 1)^5 \times (x + 1)$.
@@ -71,7 +103,22 @@ PolyExpand input:
 1 1 1
 ```
 
-### 07
+
+### 08
+A simple lifting case.
+
+The modulus is $7^8 \times 3^7 \times 11$.
+The polynomials are $(7x + 11)^7 \times (3x + 9)$
+and $x + 7817$.
+
+PolyExpand input:
+```
+2
+7 11 7
+3 9 1
+```
+
+### 09
 Modulus $211^4$ and $2 \times 10^5$-long polynomial to TLE
 submissions that do simple lifting instead of hensel lifting.
 
@@ -82,7 +129,7 @@ Python generator:
 print("-1 -1 " + ("0 " * 199996) + "211 211")
 ```
 
-### 08
+### 10
 Modulus $211^4$ and 10 $2 \times 10^4$-long polynomials to TLE
 solutions that do simple lifting instead of hensel lifting.
 
@@ -97,4 +144,3 @@ and
 ```python
 print("-1 -1 " + ("0 " * 199996) + "211 211")
 ```
-
